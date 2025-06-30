@@ -1,0 +1,47 @@
+# Programa en Python para calcular el área de un triángulo y verificar si el área es mayor a un valor mínimo
+# El programa solicita al usuario su nombre, la base y la altura de un triángulo
+# Luego calcula el área y muestra si es suficientemente grande
+# Autor: Diana
+# Fecha: 2025-06-29
+
+def calcular_area_triangulo(base: float, altura: float) -> float:
+    """
+    Calcula el área de un triángulo usando la fórmula (base * altura) / 2
+    :param base: base del triángulo (float)
+    :param altura: altura del triángulo (float)
+    :return: área del triángulo (float)
+    """
+    area = (base * altura) / 2
+    return area
+
+
+# Solicitar nombre del usuario (tipo string)
+nombre_usuario = "Diana"
+print(f"\nHola {nombre_usuario}, vamos a calcular el área de un triángulo.")
+
+# Solicitar valores al usuario (tipo float)
+base_triangulo = float(input("Ingrese la base del triángulo en centímetros: "))
+altura_triangulo = float(input("Ingrese la altura del triángulo en centímetros: "))
+
+# Validar si los datos ingresados son positivos (tipo boolean)
+valores_validos = base_triangulo > 0 and altura_triangulo > 0
+
+if valores_validos:
+    # Calcular el área usando una función
+    area_resultado = calcular_area_triangulo(base_triangulo, altura_triangulo)
+
+    # Definir un área mínima esperada (tipo int)
+    area_minima = 20
+
+    # Verificar si el área calculada es mayor a la mínima
+    es_grande = area_resultado >= area_minima  # tipo boolean
+
+    # Mostrar el resultado con todos los datos
+    print(f"\nÁrea calculada: {area_resultado:.2f} cm²")
+
+    if es_grande:
+        print("El área del triángulo es suficientemente grande.")
+    else:
+        print("El área del triángulo es pequeña.")
+else:
+    print("\nError: La base y la altura deben ser mayores que cero.")
